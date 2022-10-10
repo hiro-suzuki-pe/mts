@@ -172,28 +172,28 @@ class mts:
         # @param data_list データリスト。[0]：データＩＤ，[1]：Y/N， データの採否
         #
         def __init__(self, data_list):
-        
-        normal = []
-        abnormal = []
-        
-        for d in data_list[1:]:
-            if d[1] == 'Y':
-                normal.append(d)
-            elif d[1] == 'A':
-                abnormal.append(d)
+            
+            normal = []
+            abnormal = []
+            
+            for d in data_list[1:]:
+                if d[1] == 'Y':
+                    normal.append(d)
+                elif d[1] == 'A':
+                    abnormal.append(d)
 
-        self.normal = normal
-        self.abnormal = abnormal
-        self.SN = {}
-        for s in data_list[1:]:
-            self.SN[s[0]] = [0, 0]
+            self.normal = normal
+            self.abnormal = abnormal
+            self.SN = {}
+            for s in data_list[1:]:
+                self.SN[s[0]] = [0, 0]
 
-#        m = math.ceil(log2(nparm))
-#        self.L = self.orthogonal_array(self.nparm)
+    #        m = math.ceil(log2(nparm))
+    #        self.L = self.orthogonal_array(self.nparm)
 
-        print('normal: ', len(normal), ', abnormal: ', len(abnormal),
-              ', not used: ', len(data_list) - len(normal) - len(abnormal) - 1)
-        
+            print('normal: ', len(normal), ', abnormal: ', len(abnormal),
+                ', not used: ', len(data_list) - len(normal) - len(abnormal) - 1)
+            
     ##
     # @fn extract_data
     # @brief occurrenceに従って採用項目からなる正常データを抽出する。
